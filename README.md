@@ -1,5 +1,5 @@
 # a-game-using-Pygame
-This game is a two-player version of Pong, where each player controls a paddle to try to hit a ball back and forth. The objective is to score points by getting the ball past the opponent's paddle. The game ends when one player reaches a predetermined number of points.
+
 import pygame
 import random
 
