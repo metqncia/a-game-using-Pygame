@@ -8,7 +8,6 @@ screen_height = 300
 screen = pygame.display.set_mode((screen_width, screen_height))
 pygame.display.set_caption("Pong")
 
-
 ball_size = 10
 ball_x = screen_width // 2
 ball_y = screen_height // 2
@@ -30,16 +29,15 @@ def draw_paddle(x, y):
 
 running = True
 while running:
-   
+    # Handle events
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
 
- 
+
     ball_x += ball_speed_x
     ball_y += ball_speed_y
 
-    
     if ball_y <= 0 or ball_y >= screen_height - ball_size:
         ball_speed_y *= -1
     if ball_x <= 0:
@@ -49,13 +47,13 @@ while running:
         ball_speed_x *= -1
         player1_score += 1
 
-   
+  
     if ball_x <= paddle_width and ball_y >= player1_y and ball_y <= player1_y + paddle_height:
         ball_speed_x *= -1
     if ball_x >= screen_width - paddle_width - ball_size and ball_y >= player2_y and ball_y <= player2_y + paddle_height:
         ball_speed_x *= -1
 
-   
+
     keys = pygame.key.get_pressed()
     if keys[pygame.K_w] and player1_y > 0:
         player1_y -= paddle_speed
@@ -66,7 +64,6 @@ while running:
     if keys[pygame.K_DOWN] and player2_y < screen_height - paddle_height:
         player2_y += paddle_speed
 
-    
     screen.fill((0, 0, 0))
     draw_ball(ball_x, ball_y)
     draw_paddle(0, player1_y)
